@@ -52,3 +52,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Django
+*/migrations/*
+!*/migrations/__init__.py
