@@ -6,3 +6,6 @@ def index(request):
   Index page
   """
   return render(request, 'index/landing.html', locals())
+
+def view_email(request):
+	return render(request, 'email/request.html', locals())
