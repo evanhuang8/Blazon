@@ -76,6 +76,11 @@ module.exports = (grunt) ->
                     stdout: true
                     stderr: true
                 command: 'python manage.py runserver 0.0.0.0:8080'
+            test:
+                options:
+                    stdout: true
+                    stderr: true
+                command: 'python manage.py test sponsorship.tests'
         concurrent:
             startDevelopment:
                 tasks: [
@@ -89,5 +94,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'compile', ['jade', 'coffee', 'less', 'bower_concat']
     
     grunt.registerTask 'dev', ['compile', 'env:dev', 'concurrent:startDevelopment']
+
+    grunt.registerTask 'test', ['shell:test']
 
     return

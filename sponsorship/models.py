@@ -1,7 +1,10 @@
+import os
+import hashlib
 from django.conf import settings
 from django.contrib.auth.models import (
   BaseUserManager, AbstractBaseUser
 )
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 class UserManager(BaseUserManager):
@@ -52,6 +55,25 @@ class User(AbstractBaseUser):
   def is_staff(self):
     return self.is_admin
 
+class UserAuthBackend(object):
+
+  def authenticate(self, email = None, password = None):
+    user = None
+    try:
+      user = User.objects.get(email = email)
+    except ObjectDoesNotExist:
+      return None
+    if not user.check_password(password):
+      return None
+    return user
+
+  def get_user(self, pk):
+    try:
+      return User.objects.get(pk = pk)
+    except ObjectDoesNotExist:
+      pass
+    return None
+
 class Campaign(models.Model):
 
   name = models.CharField(max_length = 100)
@@ -65,7 +87,7 @@ class Tier(models.Model):
   campaign = models.ForeignKey('Campaign')
   name = models.CharField(max_length = 100)
   description = models.TextField()
-  price = models.IntegerField()
+  price = models.IntegerField() # in cents
   created_at = models.DateTimeField(auto_now_add = True)
 
 class Inkind(models.Model):
@@ -74,3 +96,17 @@ class Inkind(models.Model):
   name = models.CharField(max_length = 100)
   description = models.TextField()
   created_at = models.DateTimeField(auto_now_add = True)
+
+class Prompt(models.Model):
+
+  campaign = models.ForeignKey('campaign')
+  user = models.ForeignKey('User')
+  access_token = models.CharField(max_length = 128)
+  created_at = models.DateTimeField(auto_now_add = True)
+  updated_at = models.DateTimeField(auto_now = True)
+
+  def save(self, *args, **kwargs):
+    if self.access_token is None or len(self.access_token) == 0:
+      self.access_token = hashlib.sha1(os.urandom(128)).hexdigest()
+    super(Prompt, self).save(*args, **kwargs)
+    return
