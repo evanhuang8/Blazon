@@ -20,7 +20,7 @@ module.exports = (grunt) ->
                 MASTERCARD_PRIVATE: '/6XxzS5TE28m7PD4E2Ykk4ImRgqstQzJhwfQ+/sxtOp5YFFQL0ODSXAOkNtXTToq'
         bower_concat:
             libraries:
-                dest: 'static/js/libraries.js'
+                dest: 'sponsorship/static/js/libraries.js'
                 mainFiles: 
                     'foundation': [
                         'js/foundation.js'
