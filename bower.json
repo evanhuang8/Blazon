@@ -1,0 +1,30 @@
+{
+  "name": "Blazon",
+  "version": "0.1.0",
+  "homepage": "https://github.com/evanhuang8/Blazon",
+  "authors": [
+    "Evan Huang <evanhuang8@gmail.com>"
+  ],
+  "description": "Put the fun back to fundraising",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "GNU AGPL v3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "5.4.x",
+    "foundation-datepicker": "1.0.0",
+    "jquery": "1.11.x",
+    "jquery-serialize-object": "*",
+    "jt.timepicker": "*",
+    "moment": "*",
+    "moment-timezone": "*"
+  }
+}

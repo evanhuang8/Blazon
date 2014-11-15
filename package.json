@@ -1,0 +1,31 @@
+{
+  "name": "Blazon",
+  "version": "0.1.0",
+  "description": "Put the fun back to fundraising",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanhuang8/Blazon.git"
+  },
+  "author": "Evan Huang <evanhuang8@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/evanhuang8/Blazon/issues"
+  },
+  "homepage": "https://github.com/evanhuang8/Blazon",
+  "dependencies": {
+    "grunt": "*",
+    "grunt-bower-concat": "*",
+    "grunt-concurrent": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-jade": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*", 
+    "grunt-contrib-less": "*", 
+    "grunt-env": "*",
+    "grunt-newer": "*",
+    "grunt-prompt": "*",
+    "grunt-shell": "*",
+    "grunt-simple-watch": "*"
+  }
+}
