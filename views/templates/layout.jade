@@ -5,7 +5,9 @@ html
       title
         block title
           | Blazon
+      link(rel="stylesheet", href="{{ STATIC_URL }}css/blazon.css")
   body
     block body
-    scripts
+    div#scripts
       block scripts
+        script(src="{{ STATIC_URL }}js/blazon.js")
