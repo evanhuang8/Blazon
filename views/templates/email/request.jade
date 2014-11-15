@@ -16,7 +16,15 @@ html(lang="en")
                 width: 600px;
                 border: 1px solid #CCC;
             }
+            #request div#logo{
+                width: 100%;
+                text-align:center;
+            }
+            #request div#logo img{
+                height:60px;
+            }
     body
         div#request
-            | Request
+            div#logo
+                img(src="{{ STATIC_URL }}images/logo.png")
             
