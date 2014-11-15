@@ -1,0 +1,44 @@
+@import (reference) "vars.less";
+
+div#login{
+  color: @dark-brown;
+  height:100%;
+  div#content-container{
+    min-height: 100%;
+    border-left: @light-brown thin solid;
+    border-right: @light-brown thin solid;
+    div#login-container{
+      margin-top: 100px;
+      div.container{
+        border-radius: 3px;
+        border: @light-brown thin solid;
+        padding-top: 60px;
+        padding-bottom: 40px;
+        .title{
+          color: @dark-brown;
+        }
+        hr{
+          color: @light-brown;
+          background: @light-brown;
+          height: 1px;
+          border: none;
+          margin-top: 20px;
+          margin-bottom: 25px;
+        }
+      }
+      div.complete{
+        margin-top: 20px;
+        a{
+          border-radius: 3px;
+          border: @dark-brown thin solid;
+          color: @dark-brown;
+          background: #FFF;
+          &.save-campaign{
+            background: @dark-brown;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}

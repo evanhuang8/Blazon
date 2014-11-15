@@ -1,0 +1,28 @@
+extends ../layout
+
+block body
+  div#login
+    div#content-container.row
+      div.small-12.columns
+        div#login-container
+          div.row
+            div.container.small-12.medium-10.medium-offset-1.columns
+              div.row
+                div.small-12.medium-10.medium-offset-1.columns
+                  h3.title Create Campaign
+                  div.description
+                    | Campaigns help you solicit sponsorships from stakeholders in your communities.
+                  hr
+              div.row
+                div.small-12.medium-3.medium-offset-1.columns Email
+                div.small-12.medium-7.columns.end
+                  input(type="text", name="name", placeholder="Email")
+              div.row
+                div.small-12.medium-3.medium-offset-1.columns Password
+                div.small-12.medium-7.columns.end
+                  input(type="password", name="name", placeholder="Password")
+              div.row.complete
+                div.small-12.medium-3.medium-offset-4.columns
+                  a.button.expand.cancel-campaign.back-btn(href="{% url 'sponsorship:index' %}") Cancel
+                div.small-12.medium-4.columns.end
+                  a.button.expand.save-campaign.login-btn(href="javascript:;") Login

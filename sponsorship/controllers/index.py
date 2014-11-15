@@ -7,5 +7,11 @@ def index(request):
   """
   return render(request, 'index/landing.html', locals())
 
+def login(request):
+	return render(request, 'index/login.html', locals())
+
+def dashboard(request):
+	return render(request, 'index/dashboard.html', locals())
+
 def view_email(request):
 	return render(request, 'email/request.html', locals())
