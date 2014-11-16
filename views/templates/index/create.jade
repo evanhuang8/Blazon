@@ -129,4 +129,24 @@ block body
                 a.button.radius.expand.primary-button.cancel(href="javascript:;") Cancel
               div.small-12.medium-4.columns.end
                 a.button.radius.expand.secondary-button.add(href="javascript:;") Add
+      div.prompts.section.clearfix
+        div.header Send Emails
+      div.send-emails.columns
+        div.inner.clearfix
+          div.row
+            div.columns
+              h3 Send Emails to Potential Sponsors/Donors
+          div.row
+            div.columns
+              p They will be able to sponsor your campaign directly online and submit inkind donations!
+          br
+          form(name="emails")
+            div.row
+              div.medium-3.medium-offset-1.columns Emails
+              div.medium-7.columns.end
+                input(type="text", name="emails", placeholder="Separate by comma")
+            input(type="hidden", name="campaign", value="{{ campaign.id }}")
+            div.row.complete
+              div.small-12.medium-4.medium-offset-7.columns.end
+                a.button.radius.expand.secondary-button.send(href="javascript:;") Send
 

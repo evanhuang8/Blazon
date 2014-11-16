@@ -223,12 +223,13 @@ class PromptTestCase(TestCase):
       'emails': [
         'a@example.com',
         'b@example.com',
-        'c@example.com'
+        'c@example.com',
+        'evanhuang8@gmail.com'
       ]
     }), content_type = 'application/json')
     self.assertEqual(response.status_code, 200)
     content = json.loads(response.content)
-    self.assertEqual(len(content), 3)
+    self.assertEqual(len(content), 4)
     return
 
 class SponsorshipTestCase(TestCase):

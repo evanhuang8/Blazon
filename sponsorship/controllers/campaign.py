@@ -8,6 +8,7 @@ from rest_framework import mixins
 from rest_framework import generics
 from sponsorship.models import User, Campaign, Prompt
 from sponsorship.serializers import *
+from sponsorship.email import *
 
 class CampaignList(mixins.ListModelMixin, 
                    mixins.CreateModelMixin, 
@@ -69,5 +70,7 @@ def send_emails(request):
     prompt.save()
     prompts.append(prompt)
   # Send emails
+  for prompt in prompts:
+    sendCampaignPrompt(prompt)
   response = [PromptSerializer(prompt).data for prompt in prompts]
   return JsonResponse(response, safe = False)

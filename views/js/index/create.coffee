@@ -84,6 +84,18 @@
             alert response.message
         return
       return
+    $('div.send-emails a.send').click () ->
+      params = $('form[name=emails]').serializeObject()
+      params.emails = params.emails.split(',')
+      Blazon.postJSON '/campaigns/send_emails/', params, (response) ->
+        if response.length > 0
+          alert 'The emails have been sent to your potential sponsors/donors!'
+          $('form[name=emails]').trigger 'reset'
+        else
+          if response.message?
+            alert response.message
+        return
+      return
     return
 
 @Blazon.index.create.init()

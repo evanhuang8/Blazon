@@ -37,9 +37,34 @@ def sendCampaignPrompt(prompt):
     'name': prompt.user.first_name + ' ' + prompt.user.last_name
   }]
   subject = prompt.campaign.name
-  template = ''
+  template = 'carbon-app-solicitation'
   mergeVars = [{
     'rcpt': prompt.user.email,
-    'vars': []
+    'vars': [
+      {
+        'name': 'CAMPAIGN_NAME',
+        'content': prompt.campaign.name
+      },
+      {
+        'name': 'ORGANIZATION_NAME',
+        'content': prompt.user.organization
+      },
+      {
+        'name': 'MISSION_STATEMENT',
+        'content': prompt.user.mission_statement
+      },
+      {
+        'name': 'CAMPAIGN_LINK',
+        'content': 'http://dev.bazaarboy.com:8080/campaign/?prompt=' + str(prompt.id) + '&access_token=' + str(prompt.access_token)
+      },
+      {
+        'name': 'SENDER_NAME',
+        'content': prompt.campaign.created_by.first_name + ' ' + prompt.campaign.created_by.last_name
+      },
+      {
+        'name': 'SENDER_TITLE',
+        'content': prompt.campaign.created_by.title
+      }
+    ]
   }]
-  return
+  return sendEmails(to, settings.MANDRILL_FROM_NAME, subject, template, mergeVars)
