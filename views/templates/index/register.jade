@@ -1,30 +1,38 @@
 extends ../layout
 
 append scripts
-  script(src="{{ STATIC_URL }}js/index/login.js")
+  script(src="{{ STATIC_URL }}js/index/register.js")
 
 block body
-  div#login
+  div#register
     div#content-container.row
       div.small-12.columns
-        div#login-container
-          form(name="login")
+        div#register-container
+          form(name="register")
             div.row
               div.container.small-12.medium-10.medium-offset-1.columns
                 div.row
                   div.small-12.medium-10.medium-offset-1.columns
-                    h3.title Log In
+                    h3.title Create Your Account Now
                     hr
                 div.row
                   div.small-12.medium-3.medium-offset-1.columns Email
                   div.small-12.medium-7.columns.end
                     input(type="text", name="email", placeholder="Email")
                 div.row
+                  div.small-12.medium-3.medium-offset-1.columns First Name
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="first_name", placeholder="First Name")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns Last Name
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="last_name", placeholder="Last Name")
+                div.row
                   div.small-12.medium-3.medium-offset-1.columns Password
                   div.small-12.medium-7.columns.end
                     input(type="password", name="password", placeholder="Password")
                 div.row.complete
                   div.small-12.medium-3.medium-offset-4.columns
-                    a.button.radius.expand.primary-button.back(href="{% url 'sponsorship:index' %}") Cancel
+                    a.button.radius.expand.primary-button.back-btn(href="{% url 'sponsorship:index' %}") Cancel
                   div.small-12.medium-4.columns.end
-                    a.button.radius.expand.secondary-button.login(href="javascript:;") Login
+                    a.register.button.radius.expand.secondary-button(href="javascript:;") Register

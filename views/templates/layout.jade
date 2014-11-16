@@ -19,6 +19,15 @@ html
             ul.right
               li
                 a.create-campaign-start-btn(href="javascript:;") Create Campaign
+              | {% if request.user.is_authenticated %}
+              li
+                a(href="{% url 'sponsorship:user.logout' %}") Log Out
+              | {% else %}
+              li
+                a(href="{% url 'sponsorship:login' %}") Log In
+              li
+                a(href="{% url 'sponsorship:register' %}") Register
+              | {% endif %}
     block create
       div#create-campaign
         form(name="create_campaign")
@@ -42,4 +51,6 @@ html
     div#scripts
       block scripts
         script(src="{{ STATIC_URL }}js/libraries.js")
+        script.
+          var csrfToken = "{{ csrf_token }}";
         script(src="{{ STATIC_URL }}js/blazon.js")
