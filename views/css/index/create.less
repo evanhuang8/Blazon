@@ -63,4 +63,68 @@ div#campaign-create{
     border-radius: 3px;
     overflow: hidden;
   }
+
+  div.add-tier {
+    margin-bottom: 20px;
+
+    > div.inner {
+      margin: 40px;
+      padding: 40px;
+      border: 1px solid @light-brown;
+      border-radius: 3px;
+    }
+  }
+
+  div.add-inkind {
+    margin-bottom: 20px;
+
+    > div.inner {
+      margin: 40px;
+      padding: 40px;
+      border: 1px solid @light-brown;
+      border-radius: 3px;
+    }
+  }
+
+  div.section {
+    width: 100%;
+    margin-bottom: 40px;
+
+    div.header {
+      width: 100%;
+      height: 40px;
+      background-color: @dark-brown;
+      color: #FFFFFF;
+      font-size: 20px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    div.canvas {
+      width: 100%;
+      clear: both;
+    }
+
+    div.tier, div.inkind {
+      width: 100%;
+      padding: 20px 40px;
+      border-bottom: 1px solid @light-brown;
+
+      div.actions {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 18px;
+
+        a {
+          color: @red;
+        }
+      }
+    }
+
+    div.add {
+      a {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

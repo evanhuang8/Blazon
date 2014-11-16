@@ -1,5 +1,8 @@
 extends ../layout
 
+append scripts
+  script(src="{{ STATIC_URL }}js/index/create.js")
+
 block body
   div#campaign-create
     div#header
@@ -9,14 +12,14 @@ block body
             div.title
               div.row
                 div.small-12.columns 
-                  h1 Campaign Name
+                  h1 {{ campaign.name }}
       div.organization-name
         div.row
           div.small-12.columns
-            h3 Organization Name
+            h3 {{ request.user.organization }}
       div.campaign-description
         div.row
-          div.small-12.columns Campaign Description
+          div.small-12.columns {{ campaign.description }}
       div.organization-info
         div.row
           div.small-12.medium-4.columns
@@ -26,5 +29,104 @@ block body
           div.small-12.medium-4.columns
             h3 Org. Info
     div#content-container.row
-      div.small-12.columns
-        | content
+      div.tiers.section.clearfix
+        div.header Sponsorship Tiers
+        div.canvas
+          | {% for tier in tiers %}
+          div.tier.columns
+            div.top
+              h3 ${{ tier.price|formatMoney }} {{ tier.name }}
+            div.bottom
+              | {{ tier.description }}
+            div.actions
+              a.delete(href="javascript:;", data-id="{{ tier.id }}") Delete
+          | {% empty %}
+          div.tier.empty.columns
+            div.top No sponsorship tiers yet.
+          | {% endfor %}
+          div.tier.add.columns
+            div.top.medium-6.medium-centered.columns
+              a.button.radius.expand.primary-button.show-add-tier(href="javascript:;") Add Sponsorship Tier
+        div.tier.columns.template.hide
+          div.top
+            h3 
+          div.bottom
+          div.actions
+            a.delete(href="javascript:;") Delete
+      div.add-tier.columns.hide
+        div.inner.clearfix
+          div.row
+            div.columns
+              h3 Add Sponsorship Tier
+          div.row
+            div.columns
+              p The potential sponsors can sponsor this campaign directly through online payment.
+          br
+          form(name="tier")
+            div.row
+              div.medium-3.medium-offset-1.columns Name
+              div.medium-7.columns.end
+                input(type="text", name="name", placeholder="Name of the tier")
+            div.row
+              div.medium-3.medium-offset-1.columns Description
+              div.medium-7.columns.end
+                textarea(name="description", placeholder="Tier description")
+            div.row
+              div.medium-3.medium-offset-1.columns Price ($)
+              div.medium-7.columns.end
+                input(type="text", name="price", placeholder="Price of the tier")
+            input(type="hidden", name="campaign", value="{{ campaign.id }}")
+            div.row.complete
+              div.small-12.medium-3.medium-offset-4.columns
+                a.button.radius.expand.primary-button.cancel(href="javascript:;") Cancel
+              div.small-12.medium-4.columns.end
+                a.button.radius.expand.secondary-button.add(href="javascript:;") Add
+      div.inkinds.section.clearfix
+        div.header Inkind Donation Requests
+        div.canvas
+          | {% for inkind in inkinds %}
+          div.inkind.columns
+            div.top
+              h3 {{ inkind.name }}
+            div.bottom
+              | {{ inkind.description }}
+            div.actions
+              a.delete(href="javascript:;", data-id="{{ inkind.id }}") Delete
+          | {% empty %}
+          div.inkind.empty.columns
+            div.top No inkind donation requests yet.
+          | {% endfor %}
+          div.inkind.add.columns
+            div.top.medium-6.medium-centered.columns
+              a.button.radius.expand.primary-button.show-add-inkind(href="javascript:;") Add Inkind Donation Request
+        div.inkind.columns.template.hide
+          div.top
+            h3
+          div.bottom
+          div.actions
+            a.delete(href="javascript:;") Delete
+      div.add-inkind.columns.hide
+        div.inner.clearfix
+          div.row
+            div.columns
+              h3 Add Inkind Donation Request
+          div.row
+            div.columns
+              p Gift certificates, store vouchers, coupons, anything that fits your campaign needs.
+          br
+          form(name="inkind")
+            div.row
+              div.medium-3.medium-offset-1.columns Name
+              div.medium-7.columns.end
+                input(type="text", name="name", placeholder="Name of the inkind donation request")
+            div.row
+              div.medium-3.medium-offset-1.columns Description
+              div.medium-7.columns.end
+                textarea(name="description", placeholder="Description what you are looking for")
+            input(type="hidden", name="campaign", value="{{ campaign.id }}")
+            div.row.complete
+              div.small-12.medium-3.medium-offset-4.columns
+                a.button.radius.expand.primary-button.cancel(href="javascript:;") Cancel
+              div.small-12.medium-4.columns.end
+                a.button.radius.expand.secondary-button.add(href="javascript:;") Add
+

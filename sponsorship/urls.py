@@ -8,7 +8,7 @@ urlpatterns = patterns('',
   url(r'^campaign/$', index.campaign, name = 'campaign'),
   url(r'^register/$', index.register, name = 'register'),
   url(r'^profile/$', index.profile, name = 'profile'),
-  url(r'^create/(?P<pk>[0-9]+)/$', index.create, name = 'create'),
+  url(r'^create/(?P<id>[0-9]+)/$', index.create, name = 'create'),
   url(r'^email/$', index.view_email, name = 'view_email'),
   # Back end
   url(r'^user/create/$', user.create, name  = 'user.create'),

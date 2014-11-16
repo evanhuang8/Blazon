@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from sponsorship.models import *
 
 def index(request):
@@ -27,7 +27,9 @@ def profile(request):
 
 @login_required
 def create(request, id):
-  campaign = Campaign.objects.get_or_404(id = id)
+  campaign = get_object_or_404(Campaign, pk = id)
+  tiers = Tier.objects.filter(campaign = campaign).order_by('-price')
+  inkinds = Inkind.objects.filter(campaign = campaign).order_by('created_at')
   return render(request, 'index/create.html', locals())
 
 def view_email(request):
