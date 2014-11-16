@@ -1,5 +1,8 @@
 extends ../layout
 
+append scripts
+  script(src="{{ STATIC_URL }}js/index/campaign.js")
+
 block body
   div#campaign
     div#header
@@ -37,38 +40,54 @@ block body
         div#monetary-donations.donation-type.row
           div.small-12.text-center.columns.title
             h3 Monetary Donations
-        div.donation.row
-          div.small-1.columns.container
-            div.check
-              div.check-inner
-                | &nbsp;
-          div.small-7.columns.end
-            div.row.name
-              div.small-12.columns
-                h3 $2500 Sponsorship Tier
-            div.row.description
-              div.small-12.columns
-                | 10 Donations | 50% Open Rate | 10% Conversion Rate
+        div.monetary-choices
+          div.donation.row
+            div.small-1.columns.container
+              div.check
+                div.check-inner
+                  | &nbsp;
+            div.small-7.columns.end
+              div.row.name
+                div.small-12.columns
+                  h3 $5000 Sponsorship Tier
+              div.row.description
+                div.small-12.columns
+                  | 10 Donations | 50% Open Rate | 10% Conversion Rate
+          div.donation.row
+            div.small-1.columns.container
+              div.check
+                div.check-inner
+                  | &nbsp;
+            div.small-7.columns.end
+              div.row.name
+                div.small-12.columns
+                  h3 $2500 Sponsorship Tier
+              div.row.description
+                div.small-12.columns
+                  | 10 Donations | 50% Open Rate | 10% Conversion Rate
         div#inkind-donations.donation-type.row
           div.small-12.text-center.columns.title
             h3 In-Kind Donations
-        div.donation.row
-          div.small-1.columns.container
-            div.check
-              div.check-inner
-                | &nbsp;
-          div.small-7.columns.end
-            div.row.name
-              div.small-12.columns
-                h3 Gift Card
-            div.row.description
-              div.small-12.columns
-                | 10 Donations | 50% Open Rate | 10% Conversion Rate
-            div.row.details
-              div.small-12.columns
-                div.row
-                  div.note.small-12.medium-3.columns
-                    label What will you donate?
-                  div.small-12.medium-9.columns
-                    input(type="text", name="description", placeholder="description")
+        div.inkind-choices
+          div.donation.row
+            div.small-1.columns.container
+              div.check
+                div.check-inner
+                  | &nbsp;
+            div.small-11.columns.end
+              div.row.name
+                div.small-8.columns
+                  h3 Gift Card
+              div.row.description
+                div.small-8.columns
+                  | 10 Donations | 50% Open Rate | 10% Conversion Rate
+              div.row.details.hide
+                div.small-12.columns
+                  div.row
+                    div.note.small-12.medium-2.columns
+                      label What will you donate?
+                    div.small-12.medium-5.columns
+                      input(type="text", name="description", placeholder="description")
+                    div.small-12.medium-2.columns.end
+                      a.button.secondary-button.expand.radius.cancel-donation-btn.small(href="javascript:;") Cancel
         
