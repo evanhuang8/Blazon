@@ -2,6 +2,7 @@ from __future__ import absolute_import
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from sponsorship.models import *
 
 def index(request):
   """
@@ -23,6 +24,11 @@ def register(request):
 @login_required
 def profile(request):
   return render(request, 'index/profile.html', locals())
+
+@login_required
+def create(request, id):
+  campaign = Campaign.objects.get_or_404(id = id)
+  return render(request, 'index/create.html', locals())
 
 def view_email(request):
 	return render(request, 'email/request.html', locals())
