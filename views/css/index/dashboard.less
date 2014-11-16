@@ -35,17 +35,32 @@ div#dashboard{
         margin-top: 20px;
       }
     }
+    div.new-campaign-dashboard{
+      margin-top: 10px;
+      textarea{
+        min-height: 46px;
+      }
+      a{
+        //display: none;
+      }
+    }
     div#campaigns{
-      margin-top: 40px;
+      margin-top: 0px;
       div.campaign{
         padding-top: 20px;
         padding-bottom: 20px;
         border-bottom: @light-brown thin solid;
+        cursor: pointer;
+        transition: background .1s;
+        &:hover{
+          background: @light-brown-50;
+        }
         &:first-child{
+          padding-top: 20px;
           border-top: @light-brown thin solid;
         }
         img.open{
-          margin-top: 7px;
+          margin-top: 5px;
         }
       }
     }
