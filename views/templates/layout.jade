@@ -18,9 +18,18 @@ html
           section.top-bar-section
             ul.right
               li
-                a(href="javascript:;") Create Campaign
+                a.create-campaign-start-btn(href="javascript:;") Create Campaign
+              | {% if request.user.is_authenticated %}
+              li
+                a(href="{% url 'sponsorship:user.logout' %}") Log Out
+              | {% else %}
+              li
+                a(href="{% url 'sponsorship:login' %}") Log In
+              li
+                a(href="{% url 'sponsorship:register' %}") Register
+              | {% endif %}
     block create
-      div#create-campaign.hide
+      div#create-campaign
         form(name="create_campaign")
           div.row
             div.small-12.columns.title
@@ -28,12 +37,20 @@ html
           div.row
             div.small-12.medium-6.columns
               label Campaign Name
-              input(type="text", name="name")
+              input(type="text", name="name", placeholder="Keep it short and sweet!")
             div.small-12.medium-6.columns
               label Campaign Description
-              textarea(name="description")
+              textarea(name="description", placeholder="Description for Sponsors")
+              div.row
+                div.small-12.medium-4.columns
+                  a.button.radius.expand.secondary-button Cancel
+                div.small-12.medium-8.columns
+                  a.button.radius.expand.primary-button Create Campaign
 
     block body
     div#scripts
       block scripts
+        script(src="{{ STATIC_URL }}js/libraries.js")
+        script.
+          var csrfToken = "{{ csrf_token }}";
         script(src="{{ STATIC_URL }}js/blazon.js")

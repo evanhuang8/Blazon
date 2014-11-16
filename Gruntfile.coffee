@@ -59,7 +59,7 @@ module.exports = (grunt) ->
                 options:
                     nospawn: true
                 files: ['views/templates/**/*.jade']
-                tasks: ['newer:jade']
+                tasks: ['jade']
             coffee:
                 options:
                     nospawn: true

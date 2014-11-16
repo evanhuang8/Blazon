@@ -7,6 +7,8 @@ def index(request):
   """
   Index page
   """
+  if request.user.is_authenticated():
+    return render(request, 'index/dashboard.html', locals())
   return render(request, 'index/landing.html', locals())
 
 def login(request):
@@ -14,9 +16,6 @@ def login(request):
 
 def register(request):
   return render(request, 'index/register.html', locals())
-
-def dashboard(request):
-	return render(request, 'index/dashboard.html', locals())
 
 def view_email(request):
 	return render(request, 'email/request.html', locals())
