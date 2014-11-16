@@ -14,7 +14,6 @@ block body
                     | Campaigns help you solicit sponsorships from stakeholders in your communities.
                   hr
               form(name="create_campaign")
-                input(type="hidden", name="created_by", value="{{ request.user.id }}")
                 div.row
                   div.small-12.medium-3.medium-offset-1.columns.info-title Campaign Name
                   div.small-12.medium-7.columns.end
