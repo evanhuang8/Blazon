@@ -1,5 +1,8 @@
 extends ../layout
 
+append scripts
+  script(src="{{ STATIC_URL }}js/index/campaign.js")
+
 block body
   div#campaign
     div#header
@@ -9,66 +12,104 @@ block body
             div.title
               div.row
                 div.small-12.columns 
-                  h1 Campaign Name
+                  h1 {{ campaign.name }}
       div.organization-name
         div.row
           div.small-12.columns
-            h3 Organization Name
+            h3 {{ campaign.created_by.organization }}
       div.campaign-description
         div.row
-          div.small-12.columns Campaign Description
+          div.small-12.columns {{ campaign.description }}
       div.organization-info
         div.row
           div.small-12.medium-4.columns
             h3 Contact Us
+            br
+            p
+              a(href="mailto:{{ campaign.created_by.email }}", target="_blank") {{ campaign.created_by.email }}
           div.small-12.medium-4.columns
             h3 Mail-In Donation
+            br
+            p {{ campaign.created_by.address }}
           div.small-12.medium-4.columns
             h3 Org. Info
+            br
+            p Tax ID: {{ campaign.created_by.tax_id }}
     div#content-container.row
       div.small-12.columns
         div.top.row
           div.small-12.medium-6.columns
             h3 Donations
           div.small-12.medium-3.columns
-            a.view-inkind-btn.button.primary-button.radius.expand(href="javascript:;") View Monetary
+            a.view-inkind-btn.button.primary-button.radius.expand(href="#monetary-donations") View Sponsorship
           div.small-12.medium-3.columns
-            a.view-inkind-btn.button.primary-button.radius.expand(href="javascript:;") View In-Kind
+            a.view-inkind-btn.button.primary-button.radius.expand(href="#inkind-donations") View In-Kind
         div#monetary-donations.donation-type.row
           div.small-12.text-center.columns.title
             h3 Monetary Donations
-        div.donation.row
-          div.small-1.columns.container
-            div.check
-              div.check-inner
-                | &nbsp;
-          div.small-7.columns.end
-            div.row.name
-              div.small-12.columns
-                h3 $2500 Sponsorship Tier
-            div.row.description
-              div.small-12.columns
-                | 10 Donations | 50% Open Rate | 10% Conversion Rate
+        div.monetary-choices
+          | {% for tier in tiers %}
+          div.donation.row
+            div.small-1.columns.container
+              div.check
+                div.check-inner
+                  | &nbsp;
+            div.small-7.columns.end
+              div.row.name
+                div.small-12.columns
+                  h3 ${{ tier.price|formatMoney }} {{ tier.name }}
+              div.row.description
+                div.small-12.columns
+                  | {{ tier.description }}
+          | {% endfor %}          
         div#inkind-donations.donation-type.row
           div.small-12.text-center.columns.title
             h3 In-Kind Donations
-        div.donation.row
-          div.small-1.columns.container
-            div.check
-              div.check-inner
-                | &nbsp;
-          div.small-7.columns.end
-            div.row.name
-              div.small-12.columns
-                h3 Gift Card
-            div.row.description
-              div.small-12.columns
-                | 10 Donations | 50% Open Rate | 10% Conversion Rate
-            div.row.details
-              div.small-12.columns
-                div.row
-                  div.note.small-12.medium-3.columns
-                    label What will you donate?
-                  div.small-12.medium-9.columns
-                    input(type="text", name="description", placeholder="description")
-        
+        div.inkind-choices
+          | {% for inkind in inkinds %}
+          div.donation.row
+            div.small-1.columns.container
+              div.check
+                div.check-inner
+                  | &nbsp;
+            div.small-11.columns.end
+              div.row.name
+                div.small-8.columns
+                  h3 {{ inkind.name }}
+              div.row.description
+                div.small-8.columns
+                  | {{ inkind.description }}
+              div.row.details.hide
+                div.small-12.columns
+                  div.row
+                    div.note.small-12.medium-2.columns
+                      label What will you donate?
+                    div.small-12.medium-5.columns
+                      input(type="text", name="description", placeholder="Describe what your donation will be")
+                    div.small-12.medium-2.columns.end
+                      a.button.secondary-button.expand.radius.cancel-donation-btn.small(href="javascript:;") Cancel
+          | {% endfor %}
+        div.respond.columns
+          div.inner.clearfix
+            div.row
+              div.columns
+                h3 Ready to Sponsor/Donate?
+            br
+            form(name="respond")
+              div.row
+                div.medium-3.medium-offset-1.columns Your Name
+                div.medium-7.columns.end
+                  input(type="text", name="name")
+              div.row
+                div.medium-3.medium-offset-1.columns Address
+                div.medium-7.columns.end
+                  input(type="text", name="address")
+              div.row
+                div.medium-3.medium-offset-1.columns Phone
+                div.medium-7.columns.end
+                  input(type="text", name="phone", placeholder="Optional")
+              br
+              input(type="hidden", name="access_token", value="{{ prompt.access_token }}")
+              div.row.complete
+                div.small-12.medium-4.medium-offset-7.columns.end
+                  a.button.radius.expand.secondary-button.confirm(href="javascript:;") Confirm

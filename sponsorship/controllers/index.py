@@ -2,6 +2,7 @@ from __future__ import absolute_import
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseForbidden
 from sponsorship.models import *
 
 def index(request):
@@ -17,7 +18,15 @@ def login(request):
 	return render(request, 'index/login.html', locals())
 
 def campaign(request):
-	return render(request, 'index/campaign.html', locals())
+  prompt = request.REQUEST.get('prompt', None)
+  accessToken = request.REQUEST.get('access_token', None)
+  prompt = get_object_or_404(Prompt, pk = prompt)
+  if prompt.access_token != accessToken:
+    return HttpResponseForbidden()
+  campaign = prompt.campaign
+  tiers = Tier.objects.filter(campaign = campaign)
+  inkinds = Inkind.objects.filter(campaign = campaign)
+  return render(request, 'index/campaign.html', locals())
 
 def register(request):
   return render(request, 'index/register.html', locals())
@@ -32,6 +41,3 @@ def create(request, id):
   tiers = Tier.objects.filter(campaign = campaign).order_by('-price')
   inkinds = Inkind.objects.filter(campaign = campaign).order_by('created_at')
   return render(request, 'index/create.html', locals())
-
-def view_email(request):
-	return render(request, 'email/request.html', locals())
