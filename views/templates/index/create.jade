@@ -24,10 +24,17 @@ block body
         div.row
           div.small-12.medium-4.columns
             h3 Contact Us
+            br
+            p
+              a(href="mailto:{{ campaign.created_by.email }}", target="_blank") {{ campaign.created_by.email }}
           div.small-12.medium-4.columns
             h3 Mail-In Donation
+            br
+            p {{ campaign.created_by.address }}
           div.small-12.medium-4.columns
             h3 Org. Info
+            br
+            p Tax ID: {{ campaign.created_by.tax_id }}
     div#content-container.row
       div.tiers.section.clearfix
         div.header Sponsorship Tiers
@@ -98,7 +105,7 @@ block body
           | {% endfor %}
           div.inkind.add.columns
             div.top.medium-6.medium-centered.columns
-              a.button.radius.expand.primary-button.show-add-inkind(href="javascript:;") Add Inkind Donation Request
+              a.button.radius.expand.primary-button.show-add-inkind(href="javascript:;") Add In-kind Donation Request
         div.inkind.columns.template.hide
           div.top
             h3
