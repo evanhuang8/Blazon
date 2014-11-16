@@ -26,6 +26,22 @@
       return
     return
 
+  postJSON: (url, params, cb) ->
+    xhr = $.ajax url, 
+      data: JSON.stringify params
+      contentType: 'application/json'
+      type: 'POST'
+    xhr.done (data) ->
+      cb? data
+      return
+    xhr.fail () ->
+      res =
+        status: 'FAIL'
+        message: 'Oops, something is not right here!'
+      cb? res
+      return
+    return
+
   init: () ->
     # Inject CSRF token for each ajax request
     $.ajaxSetup 
@@ -35,8 +51,8 @@
     # Global actions
     $('a.create-campaign-btn').click () ->
       params = $(this).closest('form[name=create_campaign]').serializeObject()
-      Blazon.post '/campaigns/', params, (response) ->
-        console.log response
+      Blazon.postJSON '/campaigns/', params, (response) ->
+        window.location.href = "/create/#{response.id}/"
         return
       return
     $('a.create-campaign-start-btn').click () ->
