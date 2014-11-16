@@ -1,0 +1,66 @@
+@import (reference) "vars.less";
+
+div#campaign{
+  color: @dark-brown;
+  height:100%;
+  .fullWidth {
+     width: 100%;
+     margin-left: auto;
+     margin-right: auto;
+     max-width: initial;
+     > div{
+      padding-left: 0;
+      padding-right: 0;
+     }
+  }
+  div#header{
+    box-shadow: 0 0 5px @dark-brown;
+    div.hero{
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: url("/static/images/splash-top.jpg");
+      background-size: cover;
+      background-position: center bottom;
+      div.title-container{
+        div.title{
+          position: absolute;
+          bottom: 10px;
+          h1{
+            color: #FFF;
+          }
+        }
+      }
+    }
+    div.organization-name{
+      color: #FFF;
+      background: @dark-brown;
+      min-height: 66px;
+      h3{
+        color:#FFF;
+        line-height: 66px;
+      }
+    }
+    div.campaign-description{
+      padding-top: 22px;
+      padding-bottom: 22px;
+      color: #FFF;
+      background: @light-brown;
+    }
+    div.organization-info{
+      padding-top: 22px;
+      padding-bottom: 22px;
+      background: #FFF;
+      min-height: 150px;
+    }
+  }
+  div#content-container{
+    background: #FFF;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    min-height: 100%;
+    box-shadow: 0 0 5px @dark-brown;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+}
