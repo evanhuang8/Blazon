@@ -30,3 +30,13 @@ class PromptSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Prompt
+
+class SponsorshipSerializer(serializers.ModelSerializer):
+
+  class Meta:
+    model = Sponsorship
+
+class DonationSerializer(serializers.ModelSerializer):
+
+  class Meta:
+    model = Donation

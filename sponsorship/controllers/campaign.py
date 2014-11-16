@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import json
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist

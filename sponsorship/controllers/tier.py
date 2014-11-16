@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import json
 from django.http import HttpResponseForbidden
 from rest_framework import mixins

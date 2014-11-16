@@ -110,3 +110,35 @@ class Prompt(models.Model):
       self.access_token = hashlib.sha1(os.urandom(128)).hexdigest()
     super(Prompt, self).save(*args, **kwargs)
     return
+
+class Sponsorship(models.Model):
+
+  prompt = models.ForeignKey('Prompt')
+  tier = models.ForeignKey('Tier')
+  checkout = models.ForeignKey('Checkout')
+  is_accepted = models.BooleanField(default = False)
+  accepted_at = models.DateTimeField(null = True, default = None)
+  is_rejected = models.BooleanField(default = False)
+  rejected_at = models.DateTimeField(null = True, default = None)
+  created_at = models.DateTimeField(auto_now_add = True)
+
+class Checkout(models.Model):
+
+  user = models.ForeignKey('User')
+  amount = models.IntegerField() # in cents
+  token = models.CharField(max_length = 255)
+  payment = models.CharField(max_length = 255)
+  refund = models.CharField(max_length = 255, null = True, default = None)
+  refunded_at = models.DateTimeField(null = True, default = None)
+
+class Donation(models.Model):
+
+  prompt = models.ForeignKey('Prompt')
+  inkind = models.ForeignKey('Inkind')
+  description = models.TextField()
+  attachment = models.FileField(upload_to = 'uploads/%Y-%m-%d/', null = True, default = None)
+  is_accepted = models.BooleanField(default = False)
+  accepted_at = models.DateTimeField(null = True, default = None)
+  is_rejected = models.BooleanField(default = False)
+  rejected_at = models.DateTimeField(null = True, default = None)
+  created_at = models.DateTimeField(auto_now_add = True)
