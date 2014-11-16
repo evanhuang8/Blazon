@@ -76,14 +76,18 @@
         var params;
         params = $(this).closest('form[name=create_campaign]').serializeObject();
         Blazon.postJSON('/campaigns/', params, function(response) {
-          window.location.href = "/create/" + response.id + "/";
+          if (response.status != null) {
+            alert("Campaign Creation Error");
+          } else {
+            window.location.href = "/create/" + response.id + "/";
+          }
         });
       });
       $('a.create-campaign-start-btn').click(function() {
-        $('div#create-campaign').slideToggle();
+        $('div#create-campaign').slideToggle(200);
       });
       $('a.cancel-campaign-start-btn').click(function() {
-        $('div#create-campaign').slideUp();
+        $('div#create-campaign').slideUp(200);
       });
     }
   };

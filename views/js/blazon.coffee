@@ -52,14 +52,17 @@
     $('a.create-campaign-btn').click () ->
       params = $(this).closest('form[name=create_campaign]').serializeObject()
       Blazon.postJSON '/campaigns/', params, (response) ->
-        window.location.href = "/create/#{response.id}/"
+        if response.status?
+          alert "Campaign Creation Error"
+        else
+          window.location.href = "/create/#{response.id}/"
         return
       return
     $('a.create-campaign-start-btn').click () ->
-      $('div#create-campaign').slideToggle()
+      $('div#create-campaign').slideToggle(200)
       return
     $('a.cancel-campaign-start-btn').click () ->
-      $('div#create-campaign').slideUp()
+      $('div#create-campaign').slideUp(200)
       return
     return
 
