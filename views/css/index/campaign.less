@@ -62,5 +62,97 @@ div#campaign{
     box-shadow: 0 0 5px @dark-brown;
     border-radius: 3px;
     overflow: hidden;
+    div.top{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-bottom: @light-brown thin solid;
+      h3{
+        margin-top: 10px;
+      }
+      a{
+        margin-bottom: 0;
+      }
+    }
+    div.donation-type{
+      background: @light-brown-50;
+      border-bottom: @light-brown thin solid;
+      h3{
+        color: #FFF;
+        margin-bottom: 2px;
+        margin-top: 2px;
+      }
+    }
+    div.monetary-choices{
+      div.donation{
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        &.active{
+
+        }
+      }
+    }
+    div.inkind-choices{
+      div.donation{
+        &.active{
+          cursor: default;
+        }
+      }
+    }
+    div.donation{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: @light-brown thin solid;
+      cursor: pointer;
+      transition: background .1s;
+      &:hover{
+        background: @light-brown-25;
+      }
+      div.container{
+        min-height: 60px;
+        padding: 10px 0;
+        div.check{
+          float: left;
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          height: 25px;
+          width: 25px;
+          background: #FFF;
+          border: @light-brown thin solid;
+          border-radius: 2px;
+          left: 45%;
+          div.check-inner{
+            background: @dark-brown;
+            display: none;
+            margin: 2px;
+            border-radius: 2px;
+            height: 25px;
+            width: 25px;
+          }
+        }
+      }
+      &.active{
+        background: @light-brown-25;
+        div.check{
+          border: @dark-brown thin solid !important;
+          background: @dark-brown !important;
+        }
+      }
+      div.details{
+        margin-top: 15px;
+        div.note{
+          margin-top: 5px;
+        }
+        input{
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
