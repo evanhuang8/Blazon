@@ -39,6 +39,10 @@ div#dashboard{
       margin-top: 10px;
       textarea{
         min-height: 46px;
+        transition: min-height .1s;
+        &:focus{
+          min-height: 88px;
+        }
       }
       a{
         //display: none;
