@@ -6,7 +6,10 @@ from django.contrib.auth import logout as auth_logout
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from rest_framework import mixins
+from rest_framework import generics
 from sponsorship.models import User
+from sponsorship.serializers import *
 
 def create(request):
   email = request.POST.get('email', None)
@@ -48,3 +51,14 @@ def auth(request):
 def logout(request):
   auth_logout(request)
   return redirect('sponsorship:index')
+
+class UserDetails(mixins.UpdateModelMixin, generics.GenericAPIView):
+  
+  serializer_class = UserSerializer
+
+  def get_queryset(self):
+    queryset = User.objects.filter(id = self.request.user.id)
+    return queryset
+
+  def post(self, request, *args, **kwargs):
+    return self.update(request, *args, **kwargs)

@@ -36,6 +36,13 @@ class User(AbstractBaseUser):
   email = models.EmailField(max_length = 255, unique = True)
   first_name = models.CharField(max_length = 100)
   last_name = models.CharField(max_length = 100)
+  organization = models.CharField(max_length = 255, blank = True)
+  title = models.CharField(max_length = 255, blank = True)
+  address = models.CharField(max_length = 255, blank = True)
+  tax_id = models.CharField(max_length = 255, blank = True)
+  mission_statement = models.TextField(blank = True)
+  logo = models.ImageField(upload_to = 'uploads/%Y-%m-%d/', null = True, blank = True, default = None)
+  signature = models.ImageField(upload_to = 'uploads/%Y-%m-%d/', null = True, blank = True, default = None)
   created_at = models.DateTimeField(auto_now_add = True)
 
   is_admin = models.BooleanField(default = False)

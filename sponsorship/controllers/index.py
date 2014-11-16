@@ -17,5 +17,9 @@ def login(request):
 def register(request):
   return render(request, 'index/register.html', locals())
 
+@login_required
+def profile(request):
+  return render(request, 'index/profile.html', locals())
+
 def view_email(request):
 	return render(request, 'email/request.html', locals())

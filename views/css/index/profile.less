@@ -1,0 +1,39 @@
+@import (reference) "vars.less";
+
+div#profile{
+  color: @dark-brown;
+  height:100%;
+  div#content-container{
+    background: #FFF;
+    margin-top: 100px;
+    min-height: 100%;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 5px @dark-brown;
+    border-radius: 3px;
+    overflow: hidden;
+    div#profile-container{
+      margin-top: 100px;
+      div.container{
+        border-radius: 3px;
+        border: @light-brown thin solid;
+        padding-top: 60px;
+        padding-bottom: 40px;
+        .title{
+          color: @dark-brown;
+        }
+        hr{
+          color: @light-brown;
+          background: @light-brown;
+          height: 1px;
+          border: none;
+          margin-top: 20px;
+          margin-bottom: 25px;
+        }
+      }
+      div.complete{
+        margin-top: 20px;
+      }
+    }
+  }
+}

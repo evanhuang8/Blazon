@@ -1,0 +1,43 @@
+extends ../layout
+
+append scripts
+  script(src="{{ STATIC_URL }}js/index/profile.js")
+
+block body
+  div#profile
+    div#content-container.row
+      div.small-12.columns
+        div#profile-container
+          form(name="profile")
+            div.row
+              div.container.small-12.medium-10.medium-offset-1.columns
+                div.row
+                  div.small-12.medium-10.medium-offset-1.columns
+                    h3.title Tell Us More About You
+                    hr
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns Organization
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="organization", placeholder="Organization")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns Title
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="title", placeholder="Title")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns Address
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="address", placeholder="Address")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns Tax ID
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="tax_id", placeholder="Tax ID")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns Mission Statement
+                  div.small-12.medium-7.columns.end
+                    textarea(name="mission_statement", placeholder="Mission Statement")
+                input(type="hidden", name="id", value="{{ request.user.id }}")
+                input(type="hidden", name="first_name", value="{{ request.user.first_name }}")
+                input(type="hidden", name="last_name", value="{{ request.user.last_name }}")
+                div.row.complete
+                  div.small-12.medium-4.medium-offset-7.columns.end
+                    a.save-profile.button.radius.expand.secondary-button(href="javascript:;") Save
