@@ -3,6 +3,8 @@
 @light-brown-50: rgba(194,181,155,0.5);
 @light-brown-90: rgba(194,181,155,0.9);
 @dark-brown: rgb(90, 74, 65);
+@red: rgb(240, 89, 43);
+
 
 div#nav{
   background: #FFF;
@@ -16,6 +18,15 @@ div#nav{
   }
 }
 
+div#create-campaign{
+    background: #FFF;
+    margin-top: 46px;
+    padding-top: 20px;
+    div.title{
+        padding-bottom: 10px;
+    }
+}
+
 .sentinel {
     font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important;
 }
@@ -27,23 +38,44 @@ a {
     font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
 }
 
+.primary-button{
+    color: #FFF;
+    background: @red;
+}
+
+.secondary-button{
+    color: #FFF;
+    background: @light-brown;
+}
+
+::-webkit-input-placeholder {
+   color: @light-brown;
+}
+
 input[type=text], input[type=password], textarea{
     outline: none;
-    box-shadow: none;
+    box-shadow: none !important;
     border-radius: 3px;
-    color: @dark-brown;
-    border: @dark-brown thin solid;
+    color: @light-brown;
+    border: @light-brown thin solid;
+    outline: none !important;
+    &:focus{
+        color: @dark-brown;
+        border: @dark-brown thin solid !important;
+        outline: none !important;
+    }
 }
 
 textarea{
     min-height: 80px;
 }
 
-input[type=text]{
+input[type=text], input[type=password]{
     padding: 22px 10px;
 }
 
 body, html{
+    background-color: @light-brown;
     height:100%;
     font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
     font-size: 12pt;
@@ -56,6 +88,7 @@ h1{
     font-size: 32pt;
     line-height: 40pt;
     font-weight: 600;
+    color: @dark-brown;
 }
 
 h2{
@@ -63,11 +96,13 @@ h2{
     font-size: 24pt;
     line-height: 28pt;
     font-weight: 600;
+    color: @dark-brown;
 }
 
 h3{
     font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
     font-size: 18pt;
     line-height: 22pt;
-    font-weight: 400;
+    font-weight: 600;
+    color: @dark-brown;
 }

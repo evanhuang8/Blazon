@@ -4,11 +4,16 @@ div#dashboard{
   color: @dark-brown;
   height:100%;
   div#content-container{
+    background: #FFF;
+    margin-top: 100px;
+    margin-bottom: 60px;
     min-height: 100%;
-    border-left: @light-brown thin solid;
-    border-right: @light-brown thin solid;
-    div#new-campaign{
-      margin-top: 100px;
+    box-shadow: 0 0 5px @dark-brown;
+    border-radius: 3px;
+    overflow: hidden;
+    div#empty-campaign{
+      margin-top: 60px;
+      margin-bottom: 60px;
       div.container{
         border-radius: 3px;
         border: @light-brown thin solid;
@@ -28,15 +33,19 @@ div#dashboard{
       }
       div.complete{
         margin-top: 20px;
-        a{
-          border-radius: 3px;
-          border: @dark-brown thin solid;
-          color: @dark-brown;
-          background: #FFF;
-          &.save-campaign{
-            background: @dark-brown;
-            color: #FFF;
-          }
+      }
+    }
+    div#campaigns{
+      margin-top: 40px;
+      div.campaign{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: @light-brown thin solid;
+        &:first-child{
+          border-top: @light-brown thin solid;
+        }
+        img.open{
+          margin-top: 7px;
         }
       }
     }
