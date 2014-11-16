@@ -27,5 +27,48 @@ block body
             h3 Org. Info
     div#content-container.row
       div.small-12.columns
-        | content
+        div.top.row
+          div.small-12.medium-6.columns
+            h3 Donations
+          div.small-12.medium-3.columns
+            a.view-inkind-btn.button.primary-button.radius.expand(href="javascript:;") View Monetary
+          div.small-12.medium-3.columns
+            a.view-inkind-btn.button.primary-button.radius.expand(href="javascript:;") View In-Kind
+        div#monetary-donations.donation-type.row
+          div.small-12.text-center.columns.title
+            h3 Monetary Donations
+        div.donation.row
+          div.small-1.columns.container
+            div.check
+              div.check-inner
+                | &nbsp;
+          div.small-7.columns.end
+            div.row.name
+              div.small-12.columns
+                h3 $2500 Sponsorship Tier
+            div.row.description
+              div.small-12.columns
+                | 10 Donations | 50% Open Rate | 10% Conversion Rate
+        div#inkind-donations.donation-type.row
+          div.small-12.text-center.columns.title
+            h3 In-Kind Donations
+        div.donation.row
+          div.small-1.columns.container
+            div.check
+              div.check-inner
+                | &nbsp;
+          div.small-7.columns.end
+            div.row.name
+              div.small-12.columns
+                h3 Gift Card
+            div.row.description
+              div.small-12.columns
+                | 10 Donations | 50% Open Rate | 10% Conversion Rate
+            div.row.details
+              div.small-12.columns
+                div.row
+                  div.note.small-12.medium-3.columns
+                    label What will you donate?
+                  div.small-12.medium-9.columns
+                    input(type="text", name="description", placeholder="description")
         

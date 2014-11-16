@@ -9,6 +9,7 @@ def index(request):
   Index page
   """
   if request.user.is_authenticated():
+    campaigns = Campaign.objects.filter(created_by = request.user)
     return render(request, 'index/dashboard.html', locals())
   return render(request, 'index/landing.html', locals())
 
