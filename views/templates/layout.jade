@@ -19,6 +19,20 @@ html
             ul.right
               li
                 a(href="javascript:;") Create Campaign
+    block create
+      div#create-campaign.hide
+        form(name="create_campaign")
+          div.row
+            div.small-12.columns.title
+              h3 Create a New Campaign
+          div.row
+            div.small-12.medium-6.columns
+              label Campaign Name
+              input(type="text", name="name")
+            div.small-12.medium-6.columns
+              label Campaign Description
+              textarea(name="description")
+
     block body
     div#scripts
       block scripts
