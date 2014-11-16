@@ -13,19 +13,21 @@ block body
                   div.description
                     | Campaigns help you solicit sponsorships from stakeholders in your communities.
                   hr
-              div.row
-                div.small-12.medium-3.medium-offset-1.columns.info-title Campaign Name
-                div.small-12.medium-7.columns.end
-                  input(type="text", name="name", placeholder="Keep it short and sweet!")
-              div.row
-                div.small-12.medium-3.medium-offset-1.columns.info-title Description
-                div.small-12.medium-7.columns.end
-                  textarea(name="name", placeholder="Description for Sponsors")
-              div.row.complete
-                div.small-12.medium-3.medium-offset-4.columns
-                  a.button.radius.secondary-button.expand.cancel-campaign(href="javascript:;") Cancel
-                div.small-12.medium-4.columns.end
-                  a.button.radius.primary-button.expand.save-campaign(href="javascript:;") Create Campaign
+              form(name="create_campaign")
+                input(type="hidden", name="created_by", value="{{ request.user.id }}")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns.info-title Campaign Name
+                  div.small-12.medium-7.columns.end
+                    input(type="text", name="name", placeholder="Keep it short and sweet!")
+                div.row
+                  div.small-12.medium-3.medium-offset-1.columns.info-title Description
+                  div.small-12.medium-7.columns.end
+                    textarea(name="description", placeholder="Description for Sponsors")
+                div.row.complete
+                  div.small-12.medium-3.medium-offset-4.columns
+                    a.button.radius.secondary-button.expand(href="javascript:;") Cancel
+                  div.small-12.medium-4.columns.end
+                    a.create-campaign-btn.button.radius.primary-button.expand(href="javascript:;") Create Campaign
         div#campaigns
           div.row.campaign
             div.small-11.columns

@@ -33,6 +33,12 @@
         xhr.setRequestHeader 'X-CSRFToken', csrfToken
         return
     # Global actions
+    $('a.create-campaign-btn').click () ->
+      params = $(this).closest('form[name=create_campaign]').serializeObject()
+      Blazon.post '/campaigns/', params, (response) ->
+        console.log response
+        return
+      return
     $('a.create-campaign-start-btn').click () ->
       $('div#create-campaign').slideToggle()
       return

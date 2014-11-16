@@ -49,6 +49,13 @@
           xhr.setRequestHeader('X-CSRFToken', csrfToken);
         }
       });
+      $('a.create-campaign-btn').click(function() {
+        var params;
+        params = $(this).closest('form[name=create_campaign]').serializeObject();
+        Blazon.post('/campaigns/', params, function(response) {
+          console.log(response);
+        });
+      });
       $('a.create-campaign-start-btn').click(function() {
         $('div#create-campaign').slideToggle();
       });
