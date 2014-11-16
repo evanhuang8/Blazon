@@ -42,6 +42,22 @@
       return
     return
 
+  deleteJSON: (url, params, cb) ->
+    xhr = $.ajax url, 
+      data: JSON.stringify params
+      contentType: 'application/json'
+      type: 'DELETE'
+    xhr.done (data) ->
+      cb? data
+      return
+    xhr.fail () ->
+      res =
+        status: 'FAIL'
+        message: 'Oops, something is not right here!'
+      cb? res
+      return
+    return
+
   init: () ->
     # Inject CSRF token for each ajax request
     $.ajaxSetup 

@@ -5,7 +5,7 @@
       params = $('form[name=register]').serializeObject()
       Blazon.post '/user/create/', params, (response) ->
         if response.status is 'OK'
-          window.location.href = '/'
+          window.location.href = '/profile/'
         else
           if response.message?
             alert response.message

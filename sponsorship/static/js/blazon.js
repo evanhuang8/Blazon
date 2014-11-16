@@ -66,6 +66,29 @@
         }
       });
     },
+    deleteJSON: function(url, params, cb) {
+      var xhr;
+      xhr = $.ajax(url, {
+        data: JSON.stringify(params),
+        contentType: 'application/json',
+        type: 'DELETE'
+      });
+      xhr.done(function(data) {
+        if (typeof cb === "function") {
+          cb(data);
+        }
+      });
+      xhr.fail(function() {
+        var res;
+        res = {
+          status: 'FAIL',
+          message: 'Oops, something is not right here!'
+        };
+        if (typeof cb === "function") {
+          cb(res);
+        }
+      });
+    },
     init: function() {
       $.ajaxSetup({
         beforeSend: function(xhr, settings) {
