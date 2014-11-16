@@ -12,6 +12,9 @@ def index(request):
 def login(request):
 	return render(request, 'index/login.html', locals())
 
+def register(request):
+  return render(request, 'index/register.html', locals())
+
 def dashboard(request):
 	return render(request, 'index/dashboard.html', locals())
 
