@@ -86,6 +86,11 @@ div#campaign{
       padding-top: 20px;
       padding-bottom: 20px;
       border-bottom: @light-brown thin solid;
+      cursor: pointer;
+      transition: background .1s;
+      &:hover{
+        background: @light-brown-25;
+      }
       div.container{
         min-height: 60px;
         padding: 10px 0;
@@ -96,19 +101,27 @@ div#campaign{
           -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-          height: 20px;
-          width: 20px;
+          height: 25px;
+          width: 25px;
           background: #FFF;
-          border: #D7D7D7 thin solid;
+          border: @light-brown thin solid;
           border-radius: 2px;
+          left: 45%;
           div.check-inner{
             background: @dark-brown;
             display: none;
             margin: 2px;
             border-radius: 2px;
-            height: 20px;
-            width: 20px;
+            height: 25px;
+            width: 25px;
           }
+        }
+      }
+      &.active{
+        background: @light-brown-25;
+        div.check{
+          border: @dark-brown thin solid !important;
+          background: @dark-brown !important;
         }
       }
       div.details{
