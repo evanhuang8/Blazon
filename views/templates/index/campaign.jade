@@ -1,6 +1,7 @@
 extends ../layout
 
 append scripts
+  script(src="https://www.simplify.com/commerce/v1/simplify.js")
   script(src="{{ STATIC_URL }}js/index/campaign.js")
 
 block body
@@ -49,7 +50,7 @@ block body
             h3 Monetary Donations
         div.monetary-choices
           | {% for tier in tiers %}
-          div.donation.row
+          div.donation.row(data-price="${{ tier.price|formatMoney }}")
             div.small-1.columns.container
               div.check
                 div.check-inner
@@ -108,8 +109,27 @@ block body
                 div.medium-3.medium-offset-1.columns Phone
                 div.medium-7.columns.end
                   input(type="text", name="phone", placeholder="Optional")
-              br
               input(type="hidden", name="access_token", value="{{ prompt.access_token }}")
+              br
+            form(name="card")
+              div.payment.hide
+                div.row
+                  div.medium-3.medium-offset-1.columns Payment
+                  div.medium-7.columns.end.amount $
+                br
+                div.row
+                  div.medium-3.medium-offset-1.columns Credit Card
+                  div.medium-7.columns.end
+                    input(type="text", name="number", placeholder="Card Number")
+                div.row
+                  div.medium-2.medium-offset-4.columns
+                    input(type="text", name="cvc", placeholder="CVC")
+                  div.medium-2.columns
+                    input(type="text", name="expMonth", placeholder="Exp Month")
+                  div.medium-3.columns.end
+                    input(type="text", name="expYear", placeholder="Exp Year")
+
+                br
               div.row.complete
                 div.small-12.medium-4.medium-offset-7.columns.end
                   a.button.radius.expand.secondary-button.confirm(href="javascript:;") Confirm

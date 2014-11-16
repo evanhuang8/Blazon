@@ -1,65 +1,127 @@
 extends ../layout
 
 block nav
-  div#landing-nav.fixed.contain-to-grid
-    nav.top-bar(data-topbar)
-      ul.title-area
-        li.name
-          h1
-            a(href="{% url 'sponsorship:index' %}") Blazon
-      section.top-bar-section
-        ul.right
-          li
-            a(href="{% url 'sponsorship:login' %}") Log In
-          li
-            a(href="{% url 'sponsorship:register' %}") Register
+	div#landing-nav.fixed.contain-to-grid
+		nav.top-bar(data-topbar)
+			ul.title-area
+				li.name
+					h1
+						a(href="{% url 'sponsorship:index' %}")
+							img(src="{{STATIC_URL}}images/logo.png")
+			section.top-bar-section
+				ul.right
+					li
+						a(href="{% url 'sponsorship:login' %}") Log In
+					li
+						a(href="{% url 'sponsorship:register' %}") Register
 
 block body
-  div#landing
-    div#header
-      div.row.fullWidth
-        div.small-12.columns.hero
-          div.row
-            div.tagline.small-12.medium-8.medium-centered.columns
-              h1 Assemble Contributors to Support Your Cause
-          div.row
-            div.register.small-12.medium-3.medium-centered.columns
-              a.button.expand.radius(href="{% url 'sponsorship:register' %}") REGISTER
-    div#features
-      div.row.feature
-        div.medium-3.medium-offset-1.small-12.columns
-          div.image &nbsp;
-        div.medium-6.medium-offset-1.small-12.columns
-          div.description
-            div.title
-              h3 Title
-            div.text
-              | This is the text for the feature
-      div.row.feature
-        div.medium-3.medium-offset-1.small-12.columns
-          div.image &nbsp;
-        div.medium-6.medium-offset-1.small-12.columns
-          div.description
-            div.title
-              h3 Title
-            div.text
-              | This is the text for the feature
-      div.row.feature
-        div.medium-3.medium-offset-1.small-12.columns
-          div.image &nbsp;
-        div.medium-6.medium-offset-1.small-12.columns
-          div.description
-            div.title
-              h3 Title
-            div.text
-              | This is the text for the feature
-    div#bottom-image
-      div.row.fullWidth
-        div.small-12.columns.hero
-          div.row
-            div.tagline.small-12.medium-8.medium-centered.columns
-              h1 Blazon Consolidates and Simplifies Your Proccess
-    div#bottom
-      div.row
-        div.small-12.medium-6.medium-offset-6
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	div#landing
+		div#header
+			div.row.fullWidth
+				div.small-12.columns.hero
+					div.row
+						div.tagline.small-12.medium-8.medium-centered.columns
+							h1 Streamline Your Contribution Process with Carbon
+					div.row
+						div.register.small-12.medium-3.medium-centered.columns
+							a.button.expand.radius(href="{% url 'sponsorship:register' %}") REGISTER
+		div#features
+			div.row.feature
+				div.medium-12.columns
+					h2#intro Carbon helps nonprofits manage fundraising campaigns
+						br
+						| by providing a platform to engage financial and
+						br
+						| in-kind contributors.
+			div.row.feature
+				div.medium-3.medium-offset-1.small-12.columns
+					div.image
+						img(src="{{STATIC_URL}}images/icn_1.jpg")
+				div.medium-7.small-12.columns
+					div.description
+						div.title
+							h3 Instant Communication
+						div.text
+							| Easily broadcast sponsor forms and donation requests while maintaining contributor lists for future outreach.
+			div.row.feature
+				div.medium-3.medium-offset-1.small-12.columns
+					div.image
+						img(src="{{STATIC_URL}}images/icn_2.jpg")
+				div.medium-7.small-12.columns
+					div.description
+						div.title
+							h3 In-Kind Donation Management
+						div.text
+							| Assemble gifts and volunteers while coordinating details with your contributors.
+			div.row.feature
+				div.medium-3.medium-offset-1.small-12.columns
+					div.image
+						img(src="{{STATIC_URL}}images/icn_3.jpg")
+				div.medium-7.small-12.columns
+					div.description
+						div.title
+							h3 Online and Offline Payment Consolidation
+						div.text
+							| Collect and reconcile online and offline payments with tools like MasterCard and Intuit Quickbooks.
+		div#bottom-image
+			div.row.fullWidth
+				div.small-12.columns.hero
+					div.row
+						div.tagline.small-12.medium-8.medium-centered.columns
+							h1 Carbon is built for nonprofits 
+								br 
+								| and contributors.
+					div.row
+						div.register.small-12.medium-3.medium-centered.columns
+							a.button.expand.radius(href="{% url 'sponsorship:register' %}") REGISTER
+
+		div#bottom
+			div.row.feature
+				div.medium-3.medium-offset-2.small-12.columns
+					div.image
+						img(src="{{STATIC_URL}}images/icn_4.png")
+				div.medium-7.small-12.columns
+					div.description
+						div.title
+							h3 Current Features
+						div.text
+							ul
+								li Customizable sponsor request forms
+								li Transactable sponsor request forms
+								li In-kind donation submission 
+								li Volunteer sign up submission 
+								li Manual sponsor entry for offline receipts 
+			div.row.feature
+				div.medium-3.medium-offset-2.small-12.columns
+					div.image
+						img(src="{{STATIC_URL}}images/icn_5.png")
+				div.medium-7.small-12.columns
+					div.description
+						div.title
+							h3 In-Development Features
+						div.text
+							ul
+								li Sponsor payment reminders
+								li Sponsor Thank You’s (formatted)
+								li Social share opportunities upon sponsorship completion 
+								li Auto-generated tax deductible receipts 
+								li Read receipts on sponsor requests
+
+			div.row.feature
+				div.medium-3.medium-offset-2.small-12.columns
+					div.image
+						//- img(src="{{STATIC_URL}}images/icn_5.png")
+				div.medium-7.small-12.columns
+					div.description
+						div.title
+							h3 Future Features
+						div.text		
+							ul		
+								li Nonprofit demographic snapshot for sponsor to understand partnership potential (media kit style)
+								li Campaign e-mail scheduling 
+								li United Way Agency visibility model:
+								ul
+									li Create reporting transparency
+									li Understand agency practices
+									li Reward agencies based on performance 

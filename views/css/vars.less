@@ -11,50 +11,64 @@ div#nav{
   background: #FFF;
   border-bottom: @light-brown thin solid;
   nav.top-bar{
-    background: none;
-    a, li{
-      background: none !important;
-      color: @dark-brown;
-    }
+	background: none;
+	a, li{
+	  background: none !important;
+	  color: @dark-brown;
+	}
+  	.title-area {
+  		.name {
+  			h1 {
+  				a {
+  					padding-left:0px;
+  					img {
+				  		height: 44px!important;
+						padding-top: 3px!important;
+						padding-bottom:3px!important;
+				  	}
+  				}
+  			}
+  		}
+  	}
   }
 }
 
 div#create-campaign{
-    display: none;
-    background: #FFF;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top: @light-brown thin solid;
-    div.title{
-        padding-bottom: 10px;
-    }
+	display: none;
+	background: #FFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: @light-brown thin solid;
+	div.title{
+		padding-bottom: 10px;
+	}
 }
 
 .sentinel {
-    font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important;
+	font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important;
 }
 .gotham {
-    font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
 }
 
 a {
-    font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
 }
 
 .primary-button{
-    color: #FFF;
-    background: @red;
-    &:hover{
-        background: @red;
-    }
+	color: #FFF;
+	background: @red;
+	&:hover{
+		background: @red;
+	}
 }
 
 .secondary-button{
-    color: #FFF;
-    background: @light-brown;
-    &:hover{
-        background: @light-brown;
-    }
+	color: #FFF;
+	background: @light-brown;
+	&:hover{
+		background: @light-brown;
+	}
 }
 
 ::-webkit-input-placeholder {
@@ -62,58 +76,58 @@ a {
 }
 
 input[type=text], input[type=password], textarea{
-    outline: none;
-    box-shadow: none !important;
-    border-radius: 3px;
-    border: @light-brown thin solid;
-    outline: none !important;
-    &:focus{
-        color: @dark-brown;
-        border: @dark-brown thin solid !important;
-        outline: none !important;
-    }
+	outline: none;
+	box-shadow: none !important;
+	border-radius: 3px;
+	border: @light-brown thin solid;
+	outline: none !important;
+	&:focus{
+		color: @dark-brown;
+		border: @dark-brown thin solid !important;
+		outline: none !important;
+	}
 }
 
 textarea{
-    min-height: 80px;
-    resize: none;
+	min-height: 80px;
+	resize: none;
 }
 
 input[type=text], input[type=password]{
-    padding: 22px 10px;
+	padding: 22px 10px;
 }
 
 body, html{
-    background-color: @light-brown;
-    height:100%;
-    font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
-    font-size: 12pt;
-    line-height: 17pt;
-    font-weight: 300;
+	background-color: @light-brown;
+	height:100%;
+	font-family: 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-size: 12pt;
+	line-height: 17pt;
+	font-weight: 300;
 }
 
 h1{
-    font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
-    font-size: 32pt;
-    line-height: 40pt;
-    font-weight: 600;
-    color: @dark-brown;
+	font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
+	font-size: 32pt;
+	line-height: 40pt;
+	font-weight: 600;
+	color: @dark-brown;
 }
 
 h2{
-    font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
-    font-size: 24pt;
-    line-height: 28pt;
-    font-weight: 600;
-    color: @dark-brown;
+	font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
+	font-size: 24pt;
+	line-height: 28pt;
+	font-weight: 600;
+	color: @dark-brown;
 }
 
 h3{
-    font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
-    font-size: 18pt;
-    line-height: 22pt;
-    font-weight: 600;
-    color: @dark-brown;
+	font-family: 'Sentinel SSm A', 'Sentinel SSm B' !important; 
+	font-size: 18pt;
+	line-height: 22pt;
+	font-weight: 600;
+	color: @dark-brown;
 }
 
 label{
@@ -125,5 +139,9 @@ label{
 }
 
 a {
-    color: @dark-brown;
+	font-size: 10pt;
+	line-height: 14pt;
+	margin-bottom: 5px;
+	color: @dark-brown;
+	font-weight: 600;
 }
