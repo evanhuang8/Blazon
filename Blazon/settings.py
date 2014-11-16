@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'sponsorship',
 )
 
@@ -87,6 +88,28 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media files
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'sponsorship/static/media/')
+
 # Blazon
 
 AUTH_USER_MODEL = 'sponsorship.User'
+AUTHENTICATION_BACKENDS = ('sponsorship.models.UserAuthBackend',)
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+)
+
+MASTERCARD_PUBLIC = os.environ.get('MASTERCARD_PUBLIC', 'sbpb_NjIxZjhlYTktNTQxMS00NzI1LWFhMGQtOGY1YjJiMDZlMGFh')
+MASTERCARD_PRIVATE = os.environ.get('MASTERCARD_PRIVATE', '/6XxzS5TE28m7PD4E2Ykk4ImRgqstQzJhwfQ+/sxtOp5YFFQL0ODSXAOkNtXTToq')
+
+# Django REST framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication', 
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', 
+    ),
+}

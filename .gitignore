@@ -60,7 +60,11 @@ target/
 # Django
 */migrations/*
 !*/migrations/__init__.py
+uploads/
 
 # Node
 node_modules/
 bower_components/
+
+# OS X
+*.DS_STORE

@@ -1,1 +1,1 @@
-__all__ = ['index']
+__all__ = ['index', 'user', 'campaign', 'tier', 'inkind', 'sponsorship', 'donation']

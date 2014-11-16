@@ -20,7 +20,7 @@ module.exports = (grunt) ->
                 MASTERCARD_PRIVATE: '/6XxzS5TE28m7PD4E2Ykk4ImRgqstQzJhwfQ+/sxtOp5YFFQL0ODSXAOkNtXTToq'
         bower_concat:
             libraries:
-                dest: 'static/js/libraries.js'
+                dest: 'sponsorship/static/js/libraries.js'
                 mainFiles: 
                     'foundation': [
                         'js/foundation.js'
@@ -76,6 +76,11 @@ module.exports = (grunt) ->
                     stdout: true
                     stderr: true
                 command: 'python manage.py runserver 0.0.0.0:8080'
+            test:
+                options:
+                    stdout: true
+                    stderr: true
+                command: 'python manage.py test sponsorship.tests'
         concurrent:
             startDevelopment:
                 tasks: [
@@ -91,5 +96,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'compile', ['jade', 'coffee', 'less', 'bower_concat']
     
     grunt.registerTask 'dev', ['compile', 'env:dev', 'concurrent:startDevelopment']
+
+    grunt.registerTask 'test', ['shell:test']
 
     return
