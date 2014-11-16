@@ -5,6 +5,7 @@ urlpatterns = patterns('',
   # Front end
   url(r'^$', index.index, name = 'index'),
   url(r'^login/$', index.login, name = 'login'),
+  url(r'^campaign/$', index.campaign, name = 'campaign'),
   url(r'^register/$', index.register, name = 'register'),
   url(r'^profile/$', index.profile, name = 'profile'),
   url(r'^email/$', index.view_email, name = 'view_email'),

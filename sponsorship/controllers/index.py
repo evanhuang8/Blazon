@@ -14,6 +14,9 @@ def index(request):
 def login(request):
 	return render(request, 'index/login.html', locals())
 
+def campaign(request):
+	return render(request, 'index/campaign.html', locals())
+
 def register(request):
   return render(request, 'index/register.html', locals())
 
