@@ -1,0 +1,28 @@
+extends ../layout
+
+block body
+  div#dashboard
+    div#content-container.row
+      div.small-12.columns
+        div#new-campaign
+          div.row
+            div.container.small-12.medium-10.medium-offset-1.columns
+              div.row
+                div.small-12.medium-10.medium-offset-1.columns
+                  h3.title Create Campaign
+                  div.description
+                    | Campaigns help you solicit sponsorships from stakeholders in your communities.
+                  hr
+              div.row
+                div.small-12.medium-3.medium-offset-1.columns Campaign Name
+                div.small-12.medium-7.columns.end
+                  input(type="text", name="name", placeholder="Keep it short and sweet!")
+              div.row
+                div.small-12.medium-3.medium-offset-1.columns Description
+                div.small-12.medium-7.columns.end
+                  textarea(name="name", placeholder="Description for Sponsors")
+              div.row.complete
+                div.small-12.medium-3.medium-offset-4.columns
+                  a.button.expand.cancel-campaign(href="javascript:;") Cancel
+                div.small-12.medium-4.columns.end
+                  a.button.expand.save-campaign(href="javascript:;") Create Campaign

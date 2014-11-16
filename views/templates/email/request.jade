@@ -1,0 +1,105 @@
+doctype html
+html(lang="en")
+    head
+        style(type="text/css").
+            *{
+                box-sizing: border-box;
+            }
+            .clear {
+                clear: both;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            #request {
+                margin: 10px;
+                padding: 20px;
+                width: 600px;
+                border: 1px solid #CCC;
+            }
+            #request div#logo{
+                width: 100%;
+                text-align:center;
+                margin-bottom: 20px;
+            }
+            #request div#logo img{
+                height:80px;
+            }
+            #request div#title{
+                width: 100%;
+                background: #CCC;
+                color:#FFF;
+                padding: 12px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            div#inkind{
+                padding-top: 20px;
+            }
+
+            #request div.category{
+                margin-top: 10px;
+            }
+
+            #request div.category div.header{
+                margin: 20px 0;
+                margin-top: 40px;
+                padding-bottom:10px;
+                border-bottom: #CCC thin dotted;
+            }
+            
+            #request div.category div.option{
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: #CCC thin dotted;
+            }
+
+            #request div.category div.option div.title{
+                font-size:24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            #request div.category div.option div.title span.cost{
+                font-size: 20px;
+                font-weight: 500;
+            }
+    body
+        div#request
+            div#logo
+                img(src="{{ STATIC_URL }}images/logo.png")
+            div#title
+                | [Campaign Name] Sponsorship Packages
+            div#monetary.category
+                div.header Monetary Donations
+                div.option
+                    div.title
+                        | Tier 1&nbsp;
+                        span.cost - $5000
+                    div.description
+                        | With the Tier 1 package, your organization will receive A, B, C...
+                div.option
+                    div.title
+                        | Tier 2&nbsp;
+                        span.cost - $1000
+                    div.description
+                        | With the Tier 2 package, your organization will receive A, B, C...
+            div#inkind.category
+                div.header In-Kind Donations
+                div.option
+                    div.title
+                        | Volunteer&nbsp;
+                        span.cost - We need volunteers!
+                    div.description
+                        | For volunteering, you will receive a free t-shirt and a bunch of free hugs!
+                div.option
+                    div.title
+                        | Gift Cards&nbsp;
+                        span.cost - Gift card donation from your organization
+                    div.description
+                        | You will be featured on the poster for the event!
+
+            

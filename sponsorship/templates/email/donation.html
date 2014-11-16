@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head><style type="text/css">*{
+    box-sizing: border-box;
+}
+.clear {
+    clear: both;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#request {
+    margin: 10px;
+    padding: 20px;
+    width: 600px;
+    border: 1px solid #CCC;
+}
+#request div#logo{
+    width: 100%;
+    text-align:center;
+    margin-bottom: 20px;
+}
+#request div#logo img{
+    height:80px;
+}
+#request div#title{
+    width: 100%;
+    background: #CCC;
+    color: #FFF;
+    padding: 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+div#inkind{
+    padding-top: 20px;
+}
+
+#request div.category{
+    margin-top: 10px;
+}
+
+#request div.category div.header{
+    margin: 20px 0;
+    margin-top: 40px;
+    padding-bottom:10px;
+    border-bottom: #CCC thin dotted;
+}
+
+#request div.category div.option{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: #CCC thin dotted;
+}
+
+#request div.category div.option div.title{
+    font-size:24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#request div.category div.option div.title span.cost{
+    font-size: 20px;
+    font-weight: 500;
+}</style></head><body><div id="request"><div id="logo"><img src="{{ STATIC_URL }}images/logo.png"></div><div id="title">[Campaign Name] Sponsorship Packages</div><div id="monetary" class="category"><div class="header">Monetary Donations</div><div class="option"><div class="title">Tier 1&nbsp;<span class="cost">- $5000</span></div><div class="description">With the Tier 1 package, your organization will receive A, B, C...</div></div><div class="option"><div class="title">Tier 2&nbsp;<span class="cost">- $1000</span></div><div class="description">With the Tier 2 package, your organization will receive A, B, C...</div></div></div><div id="inkind" class="category"><div class="header">In-Kind Donations</div><div class="option"><div class="title">Volunteer&nbsp;<span class="cost">- We need volunteers!</span></div><div class="description">For volunteering, you will receive a free t-shirt and a bunch of free hugs!</div></div><div class="option"><div class="title">Gift Cards&nbsp;<span class="cost">- Gift card donation from your organization</span></div><div class="description">You will be featured on the poster for the event!</div></div></div></div></body></html>

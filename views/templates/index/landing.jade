@@ -1,1 +1,65 @@
 extends ../layout
+
+block nav
+  div#landing-nav.fixed.contain-to-grid
+    nav.top-bar(data-topbar)
+      ul.title-area
+        li.name
+          h1
+            a(href="{% url 'sponsorship:index' %}") Blazon
+      section.top-bar-section
+        ul.right
+          li
+            a(href="{% url 'sponsorship:login' %}") Log In
+          li
+            a(href="{% url 'sponsorship:login' %}") Register
+
+block body
+  div#landing
+    div#header
+      div.row.fullWidth
+        div.small-12.columns.hero
+          div.row
+            div.tagline.small-12.medium-8.medium-centered.columns
+              h1 Assemble Contributors to Support Your Cause
+          div.row
+            div.register.small-12.medium-3.medium-centered.columns
+              a.button.expand.radius(href="javascript:;") REGISTER
+    div#features
+      div.row.feature
+        div.medium-3.medium-offset-1.small-12.columns
+          div.image &nbsp;
+        div.medium-6.medium-offset-1.small-12.columns
+          div.description
+            div.title
+              h3 Title
+            div.text
+              | This is the text for the feature
+      div.row.feature
+        div.medium-3.medium-offset-1.small-12.columns
+          div.image &nbsp;
+        div.medium-6.medium-offset-1.small-12.columns
+          div.description
+            div.title
+              h3 Title
+            div.text
+              | This is the text for the feature
+      div.row.feature
+        div.medium-3.medium-offset-1.small-12.columns
+          div.image &nbsp;
+        div.medium-6.medium-offset-1.small-12.columns
+          div.description
+            div.title
+              h3 Title
+            div.text
+              | This is the text for the feature
+    div#bottom-image
+      div.row.fullWidth
+        div.small-12.columns.hero
+          div.row
+            div.tagline.small-12.medium-8.medium-centered.columns
+              h1 Blazon Consolidates and Simplifies Your Proccess
+    div#bottom
+      div.row
+        div.small-12.medium-6.medium-offset-6
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

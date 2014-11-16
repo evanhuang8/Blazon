@@ -2,7 +2,12 @@ from django.conf.urls import patterns, include, url
 from sponsorship.controllers import *
 
 urlpatterns = patterns('',
+  # Front end
   url(r'^$', index.index, name = 'index'),
+  url(r'^login/$', index.login, name = 'login'),
+  url(r'^dashboard/$', index.dashboard, name = 'dashboard'),
+  url(r'^email/$', index.view_email, name = 'view_email'),
+  # Back end
   url(r'^user/create/$', user.create, name  = 'user.create'),
   url(r'^user/auth/$', user.auth, name = 'user.auth'),
   url(r'^campaigns/$', campaign.CampaignList.as_view()),

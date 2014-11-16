@@ -5,8 +5,20 @@ html
       title
         block title
           | Blazon
+      link(rel="stylesheet", type="text/css", href="//cloud.typography.com/7993072/607226/css/fonts.css")
       link(rel="stylesheet", href="{{ STATIC_URL }}css/blazon.css")
   body
+    block nav
+      div#nav.fixed.contain-to-grid
+        nav.top-bar(data-topbar)
+          ul.title-area
+            li.name
+              h1
+                a(href="{% url 'sponsorship:index' %}") Blazon
+          section.top-bar-section
+            ul.right
+              li
+                a(href="javascript:;") Create Campaign
     block body
     div#scripts
       block scripts

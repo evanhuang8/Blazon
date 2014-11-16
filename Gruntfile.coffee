@@ -91,6 +91,8 @@ module.exports = (grunt) ->
                     limit: 10
                     logConcurrentOutput: true
 
+    grunt.option('force', true)
+
     grunt.registerTask 'compile', ['jade', 'coffee', 'less', 'bower_concat']
     
     grunt.registerTask 'dev', ['compile', 'env:dev', 'concurrent:startDevelopment']
