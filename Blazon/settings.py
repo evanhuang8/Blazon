@@ -103,6 +103,9 @@ LOGIN_URL = '/login/'
 
 MASTERCARD_PUBLIC = os.environ.get('MASTERCARD_PUBLIC', 'sbpb_NjIxZjhlYTktNTQxMS00NzI1LWFhMGQtOGY1YjJiMDZlMGFh')
 MASTERCARD_PRIVATE = os.environ.get('MASTERCARD_PRIVATE', '/6XxzS5TE28m7PD4E2Ykk4ImRgqstQzJhwfQ+/sxtOp5YFFQL0ODSXAOkNtXTToq')
+MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY', 'EJmj_TdbdCy6Xda_9hREKA')
+MANDRILL_FROM_EMAIL = os.environ.get('MANDRILL_FROM_EMAIL', 'team@carbon.com')
+MANDRILL_FROM_NAME = os.environ.get('MANDRILL_FROM_EMAIL', 'Carbon')
 
 # Django REST framework
 
